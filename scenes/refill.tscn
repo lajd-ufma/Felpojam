@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://daangolvw7s05"]
+
+[ext_resource type="Script" uid="uid://csf6ee164qe1m" path="res://refill.gd" id="1_xchbi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cyu06"]
+radius = 19.104973
+
+[node name="refill" type="Area2D" unique_id=500530116]
+collision_layer = 4
+script = ExtResource("1_xchbi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=302509467]
+offset_left = -12.0
+offset_top = -13.0
+offset_right = 13.0
+offset_bottom = 12.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=865062032]
+shape = SubResource("CircleShape2D_cyu06")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

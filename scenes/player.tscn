@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://dejwn8ot7tvt7"]
+
+[ext_resource type="Script" uid="uid://bdjjmooveauhs" path="res://scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://cskip0oinwmdj" path="res://assets/carimbo_walking.png" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://dvg8oth84sn64" path="res://scripts/hud.gd" id="3_i3pqv"]
+
+[sub_resource type="Animation" id="Animation_m8u5f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_i3pqv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wt17y"]
+resource_name = "walking"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_i3pqv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.19999999, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8u5f"]
+_data = {
+&"RESET": SubResource("Animation_m8u5f"),
+&"walking": SubResource("Animation_wt17y")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8u5f"]
+size = Vector2(59, 64)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onrkg"]
+bg_color = Color(0.2702219, 0.27022195, 0.27022177, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
+bg_color = Color(0.017020678, 0.017020682, 0.017020663, 1)
+
+[node name="player" type="CharacterBody2D" unique_id=1865968049 groups=["player"]]
+collision_mask = 15
+script = ExtResource("1_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1202526770]
+scale = Vector2(4, 4)
+texture = ExtResource("2_i3pqv")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=1989385593]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_m8u5f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=253750216]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_m8u5f")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=444148976]
+position = Vector2(0, 31)
+emitting = false
+amount = 20
+lifetime = 5.0
+one_shot = true
+preprocess = 0.2
+randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(6, 2)
+direction = Vector2(0, -0.5)
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 10.0
+initial_velocity_max = 25.0
+scale_amount_min = 4.0
+scale_amount_max = 4.5
+color = Color(0.07123137, 0.07123139, 0.07123137, 1)
+
+[node name="hud" type="CanvasLayer" parent="." unique_id=1692646776]
+script = ExtResource("3_i3pqv")
+
+[node name="barra_de_tinta" type="ProgressBar" parent="hud" unique_id=1305959948]
+offset_left = 796.0
+offset_top = 48.0
+offset_right = 977.0
+offset_bottom = 75.0
+theme_override_styles/background = SubResource("StyleBoxFlat_onrkg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i3pqv")
+value = 100.0
+show_percentage = false
+
+[node name="platform_detector" type="RayCast2D" parent="." unique_id=712809359]
+target_position = Vector2(0, 41)
+collision_mask = 8
