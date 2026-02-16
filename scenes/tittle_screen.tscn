@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://63dhuie0axv6"]
+
+[ext_resource type="Script" uid="uid://x3ton34q8x2m" path="res://scenes/tittle_screen.gd" id="1_frxte"]
+
+[sub_resource type="Gradient" id="Gradient_frxte"]
+offsets = PackedFloat32Array(0.024096385, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_esoai"]
+gradient = SubResource("Gradient_frxte")
+fill_from = Vector2(0, 0.84347826)
+fill_to = Vector2(0, 0.017391304)
+
+[node name="TittleScreen" type="Control" unique_id=671577314]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_frxte")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1411949929]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = SubResource("GradientTexture2D_esoai")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="." unique_id=1686774177]
+layout_mode = 0
+offset_top = 140.0
+offset_right = 1280.0
+offset_bottom = 163.0
+theme_override_font_sizes/font_size = 35
+text = "Titulo fodinha, deixe seu like. Yeah!"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=308890928]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=802356106]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="start_btn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1659601945]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "COMEÇAR"
+
+[node name="credits_btn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1564201869]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "CRÉDITOS
+"
+
+[node name="quit_btn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2081008020]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "SAIR
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/start_btn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/credits_btn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit_btn" to="." method="_on_quit_btn_pressed"]
