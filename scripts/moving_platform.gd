@@ -6,7 +6,8 @@ const WAIT_DURATION := 1
 @export var move_speed := 3
 @export var distance := 192
 @export var move_horizontal := true
-
+@export var duracao := 4.0
+@export var up_right := true
 signal manchou
 
 var follow := Vector2.ZERO
@@ -29,7 +30,17 @@ func _physics_process(_delta: float) -> void:
 	platform.position = platform.position.lerp(follow,0.5)
 
 func move_platform():
-	var move_direction = distance * (Vector2.RIGHT if move_horizontal else Vector2.UP)
-	var duration = move_direction.length()/float(move_speed*platform_center)
-	tween.tween_property(self, "follow", move_direction, duration).set_delay(1)
-	tween.tween_property(self, "follow", Vector2.ZERO, duration).set_delay(1)
+	var move_direction = distance * set_direction(move_horizontal,up_right)
+	#var duration = move_direction.length()/float(move_speed*platform_center)
+	tween.tween_property(self, "follow", move_direction, duracao).set_delay(1)
+	tween.tween_property(self, "follow", Vector2.ZERO, duracao).set_delay(1)
+
+func set_direction(move_horizontal,up_right):
+	if move_horizontal and up_right:
+		return Vector2.RIGHT
+	if move_horizontal and !up_right:
+		return Vector2.LEFT
+	if !move_horizontal and up_right:
+		return Vector2.UP
+	if !move_horizontal and !up_right:
+		return Vector2.DOWN
