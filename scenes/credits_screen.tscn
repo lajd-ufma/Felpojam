@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bggvdxv4ltaet"]
+
+[ext_resource type="Script" uid="uid://cm5fuk2406ino" path="res://credits_screen.gd" id="1_8n838"]
+
+[node name="CreditsScreen" type="Control" unique_id=1618456951]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8n838")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=559670400]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.21230483, 0.21230483, 0.21230483, 1)
+
+[node name="Tittle" type="Label" parent="." unique_id=393492333]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 35
+text = "CRÉDITOS"
+horizontal_alignment = 1
+
+[node name="TittleProgrammers" type="Label" parent="." unique_id=1265389677]
+layout_mode = 0
+offset_top = 81.0
+offset_right = 1280.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 35
+text = "Equipe de Programação"
+horizontal_alignment = 1
+
+[node name="TittleArtists" type="Label" parent="." unique_id=664701876]
+layout_mode = 0
+offset_top = 343.0
+offset_right = 1280.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 35
+text = "Equipe de Arte e Música"
+horizontal_alignment = 1
+
+[node name="Artists" type="Label" parent="." unique_id=825798146]
+layout_mode = 0
+offset_top = 424.0
+offset_right = 1280.0
+offset_bottom = 473.0
+theme_override_font_sizes/font_size = 25
+text = "Airam
+Emerton Rian"
+horizontal_alignment = 1
+
+[node name="Programmers" type="Label" parent="." unique_id=1598494436]
+layout_mode = 0
+offset_top = 162.0
+offset_right = 1280.0
+offset_bottom = 311.0
+theme_override_font_sizes/font_size = 25
+text = "Pedro Henrique
+Diego Oliveira
+Vinicius Azambuja
+Flávio Guilherme"
+horizontal_alignment = 1
+
+[node name="back_btn" type="Button" parent="." unique_id=1666679139]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 562.0
+offset_right = 765.0
+offset_bottom = 605.0
+theme_override_font_sizes/font_size = 25
+text = "VOLTAR"
+
+[connection signal="pressed" from="back_btn" to="." method="_on_back_btn_pressed"]
