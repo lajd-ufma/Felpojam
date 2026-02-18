@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cmpiik1frdnrr"]
 
-[ext_resource type="PackedScene" uid="uid://dejwn8ot7tvt7" path="res://player.tscn" id="1_rupst"]
-[ext_resource type="PackedScene" uid="uid://daangolvw7s05" path="res://refill.tscn" id="2_wt17y"]
-[ext_resource type="PackedScene" uid="uid://bjr4ss4f30f77" path="res://moving_platform.tscn" id="3_m8u5f"]
+[ext_resource type="PackedScene" uid="uid://dejwn8ot7tvt7" path="res://scenes/player.tscn" id="1_rupst"]
+[ext_resource type="PackedScene" uid="uid://daangolvw7s05" path="res://scenes/refill.tscn" id="2_wt17y"]
+[ext_resource type="PackedScene" uid="uid://bjr4ss4f30f77" path="res://scenes/moving_platform.tscn" id="3_m8u5f"]
+[ext_resource type="PackedScene" uid="uid://d1m5x0jhowsgc" path="res://scenes/generic_cartucho.tscn" id="4_q8s1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt17y"]
 size = Vector2(1157, 20)
@@ -37,3 +38,6 @@ position = Vector2(531, 459)
 
 [node name="moving_platform" parent="." unique_id=890934786 instance=ExtResource("3_m8u5f")]
 position = Vector2(309, 366)
+
+[node name="generic_cartucho" parent="." unique_id=854103316 instance=ExtResource("4_q8s1k")]
+position = Vector2(81, 448)

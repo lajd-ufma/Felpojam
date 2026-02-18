@@ -12,6 +12,7 @@ signal manchou
 var follow := Vector2.ZERO
 var platform_center = 16
 
+@onready var animatable_body_2d: AnimatableBody2D = $AnimatableBody2D
 @onready var tween:= get_tree().create_tween().set_loops().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 func _ready() -> void:
@@ -22,7 +23,7 @@ func _on_manchou():
 	print("manchou")
 	if tween:
 		tween.kill()
-	$AnimatableBody2D.modulate = Color.BLACK
+	animatable_body_2d.modulate = Color.BLACK
 
 func _physics_process(_delta: float) -> void:
 	platform.position = platform.position.lerp(follow,0.5)
