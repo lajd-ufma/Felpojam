@@ -1,0 +1,115 @@
+[gd_scene format=4 uid="uid://biw240k7x0um1"]
+
+[ext_resource type="PackedScene" uid="uid://bjr4ss4f30f77" path="res://scenes/moving_platform.tscn" id="1_bufqw"]
+[ext_resource type="PackedScene" uid="uid://daangolvw7s05" path="res://scenes/refill.tscn" id="2_0dsjn"]
+[ext_resource type="PackedScene" uid="uid://dejwn8ot7tvt7" path="res://scenes/player.tscn" id="3_ldkys"]
+[ext_resource type="PackedScene" uid="uid://bq7r1haufrafx" path="res://scenes/portal.tscn" id="4_dm5g0"]
+[ext_resource type="TileSet" uid="uid://d12auhu4jho2" path="res://tres/tileset.tres" id="5_vp6pq"]
+[ext_resource type="PackedScene" uid="uid://dj0kv65yv821q" path="res://scenes/crumbling_platform.tscn" id="6_0dsjn"]
+
+[node name="Level5" type="Node2D" unique_id=132011536]
+
+[node name="moving_platform" parent="." unique_id=890934786 instance=ExtResource("1_bufqw")]
+position = Vector2(940, 638)
+move_speed = 6
+distance = 120
+duracao = 2.5
+
+[node name="moving_platform2" parent="." unique_id=361625606 instance=ExtResource("1_bufqw")]
+position = Vector2(702, 670)
+move_speed = 12
+distance = 120
+duracao = 3.0
+
+[node name="moving_platform3" parent="." unique_id=1473758569 instance=ExtResource("1_bufqw")]
+position = Vector2(1230, 513)
+move_speed = 6
+distance = 120
+duracao = 2.0
+up_right = false
+
+[node name="moving_platform4" parent="." unique_id=419633091 instance=ExtResource("1_bufqw")]
+position = Vector2(1075, 444)
+distance = 210
+duracao = 2.5
+up_right = false
+
+[node name="moving_platform7" parent="." unique_id=2007089072 instance=ExtResource("1_bufqw")]
+position = Vector2(89, 516)
+move_speed = 12
+duracao = 3.6
+
+[node name="moving_platform8" parent="." unique_id=75273834 instance=ExtResource("1_bufqw")]
+position = Vector2(183, 660)
+move_speed = 21
+duracao = 3.8
+
+[node name="moving_platform9" parent="." unique_id=147105040 instance=ExtResource("1_bufqw")]
+position = Vector2(99, 318)
+move_speed = 24
+duracao = 3.0
+
+[node name="moving_platform11" parent="." unique_id=1817680767 instance=ExtResource("1_bufqw")]
+position = Vector2(760, 277)
+duracao = 2.0
+
+[node name="moving_platform12" parent="." unique_id=361934602 instance=ExtResource("1_bufqw")]
+position = Vector2(525, 368)
+distance = 150
+duracao = 0.4
+
+[node name="moving_platform13" parent="." unique_id=1105496045 instance=ExtResource("1_bufqw")]
+position = Vector2(361, 563)
+duracao = 3.7
+up_right = false
+
+[node name="moving_platform14" parent="." unique_id=1050672001 instance=ExtResource("1_bufqw")]
+position = Vector2(203, 175)
+duracao = 2.6
+
+[node name="moving_platform16" parent="." unique_id=174045384 instance=ExtResource("1_bufqw")]
+position = Vector2(1016, 157)
+move_speed = 30
+distance = 100
+duracao = 0.8
+
+[node name="refill" parent="." unique_id=500530116 instance=ExtResource("2_0dsjn")]
+position = Vector2(448, 203)
+
+[node name="player" parent="." unique_id=1865968049 instance=ExtResource("3_ldkys")]
+position = Vector2(576, 588)
+
+[node name="Portal" parent="." unique_id=1880835436 instance=ExtResource("4_dm5g0")]
+position = Vector2(1189, 72)
+next_scene_path = "res://levels/level1.tscn"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1861153566]
+tile_map_data = PackedByteArray("AAAeACcAAAAAAAAAAAAeACwAAAAAAAIAAAA1ACwAAAAJAAIAAAA1ACcAAAAJAAAAAAA1ACgAAAAJAAEAAAA1ACkAAAAJAAEAAAA1ACoAAAAJAAEAAAA1ACsAAAAJAAEAAAAeACgAAAAJAAEAADAeACkAAAAJAAEAADAeACoAAAAJAAEAADAeACsAAAAJAAEAADAfACwAAAAHAAIAAAAgACwAAAABAAIAAAAhACwAAAAGAAIAAAAiACwAAAAFAAIAAAAjACwAAAAHAAIAAAAkACwAAAABAAIAAAAlACwAAAACAAIAAAAmACwAAAAFAAIAAAAnACwAAAAIAAIAAAAoACwAAAAFAAIAAAApACwAAAABAAIAAAAqACwAAAAFAAIAAAArACwAAAAIAAIAAAAsACwAAAACAAIAAAAtACwAAAABAAIAAAAuACwAAAADAAIAAAAvACwAAAAGAAIAAAAwACwAAAACAAIAAAAxACwAAAAIAAIAAAAyACwAAAADAAIAAAAzACwAAAADAAIAAAA0ACwAAAAHAAIAAAAfACcAAAAFAAAAAAAgACcAAAAIAAAAAAAhACcAAAAHAAAAAAAiACcAAAADAAAAAAAjACcAAAABAAAAAAAkACcAAAAEAAAAAAAlACcAAAAEAAAAAAAmACcAAAADAAAAAAAnACcAAAADAAAAAAAoACcAAAAGAAAAAAApACcAAAAGAAAAAAAqACcAAAABAAAAAAArACcAAAAGAAAAAAAsACcAAAADAAAAAAAtACcAAAABAAAAAAAuACcAAAAIAAAAAAAvACcAAAAIAAAAAAAwACcAAAAHAAAAAAAxACcAAAAIAAAAAAAyACcAAAAFAAAAAAAzACcAAAAEAAAAAAA0ACcAAAABAAAAAAAlACoAAAAIAAEAAAAlACkAAAABAAEAAAAlACgAAAAIAAEAAAAkACgAAAAHAAEAAAAjACgAAAAFAAEAAAAiACgAAAAEAAEAAAAhACgAAAAHAAEAAAAgACgAAAAHAAEAAAAfACgAAAADAAEAAAAfACkAAAAEAAEAAAAfACoAAAADAAEAAAAfACsAAAAFAAEAAAAgACsAAAABAAEAAAAgACoAAAAIAAEAAAAgACkAAAAFAAEAAAAhACkAAAABAAEAAAAhACoAAAAGAAEAAAAhACsAAAADAAEAAAAiACsAAAAIAAEAAAAiACoAAAAHAAEAAAAiACkAAAACAAEAAAAjACkAAAACAAEAAAAjACoAAAABAAEAAAAjACsAAAAFAAEAAAAkACsAAAABAAEAAAAkACoAAAABAAEAAAAkACkAAAACAAEAAAAlACsAAAAGAAEAAAAmACsAAAAEAAEAAAAmACoAAAAHAAEAAAAmACkAAAACAAEAAAAmACgAAAAIAAEAAAAnACgAAAACAAEAAAAnACkAAAADAAEAAAAnACoAAAAEAAEAAAAnACsAAAADAAEAAAAoACsAAAAHAAEAAAAoACoAAAAIAAEAAAAoACkAAAAEAAEAAAAoACgAAAAGAAEAAAApACgAAAAGAAEAAAApACkAAAAIAAEAAAApACoAAAADAAEAAAApACsAAAAFAAEAAAAqACsAAAADAAEAAAAqACoAAAACAAEAAAAqACkAAAABAAEAAAAqACgAAAADAAEAAAArACgAAAAIAAEAAAArACkAAAAGAAEAAAArACoAAAAGAAEAAAArACsAAAADAAEAAAAsACsAAAAIAAEAAAAsACoAAAAIAAEAAAAsACkAAAAGAAEAAAAsACgAAAAEAAEAAAAtACgAAAAIAAEAAAAtACkAAAAIAAEAAAAtACoAAAABAAEAAAAtACsAAAAGAAEAAAAuACsAAAAGAAEAAAAuACoAAAAEAAEAAAAuACkAAAAFAAEAAAAuACgAAAAHAAEAAAAvACgAAAAIAAEAAAAvACkAAAAHAAEAAAAvACoAAAADAAEAAAAvACsAAAADAAEAAAAwACsAAAACAAEAAAAwACoAAAAGAAEAAAAwACkAAAAGAAEAAAAwACgAAAABAAEAAAAxACgAAAAFAAEAAAAxACkAAAAIAAEAAAAxACoAAAAFAAEAAAAxACsAAAABAAEAAAAyACsAAAAIAAEAAAAyACoAAAABAAEAAAAyACkAAAAHAAEAAAAyACgAAAADAAEAAAAzACgAAAAFAAEAAAAzACkAAAAFAAEAAAAzACoAAAAEAAEAAAAzACsAAAACAAEAAAA0ACsAAAADAAEAAAA0ACoAAAADAAEAAAA0ACkAAAACAAEAAAA0ACgAAAAGAAEAAABJAAcAAAAAAAAAAABJAAkAAAAAAAIAAABPAAkAAAAJAAIAAABPAAcAAAAJAAAAAABKAAcAAAAFAAAAAABLAAcAAAABAAAAAABMAAcAAAACAAAAAABNAAcAAAAGAAAAAABNAAgAAAAFAAEAAABOAAgAAAAGAAEAAABOAAcAAAABAAAAAABJAAgAAAAJAAEAADBPAAgAAAAJAAEAAABKAAkAAAAHAAIAAABLAAkAAAABAAIAAABMAAkAAAADAAIAAABNAAkAAAAHAAIAAABOAAkAAAAEAAEAAABKAAgAAAAIAAEAAABLAAgAAAAGAAEAAABMAAgAAAAFAAEAAAA=")
+tile_set = ExtResource("5_vp6pq")
+
+[node name="crumbling_platform" parent="." unique_id=854672485 instance=ExtResource("6_0dsjn")]
+position = Vector2(290, 410)
+distance = 240
+duracao = 1.5
+up_right = false
+
+[node name="crumbling_platform2" parent="." unique_id=1270958452 instance=ExtResource("6_0dsjn")]
+position = Vector2(449, 254)
+duracao = 2.0
+
+[node name="crumbling_platform3" parent="." unique_id=1440582052 instance=ExtResource("6_0dsjn")]
+position = Vector2(711, 174)
+distance = 210
+duracao = 0.4
+
+[node name="crumbling_platform4" parent="." unique_id=502722160 instance=ExtResource("6_0dsjn")]
+position = Vector2(889, 363)
+distance = 136
+duracao = 2.0
+up_right = false
+
+[node name="crumbling_platform5" parent="." unique_id=87952358 instance=ExtResource("6_0dsjn")]
+position = Vector2(1075, 574)
+move_speed = 12
+distance = 120
+duracao = 3.0

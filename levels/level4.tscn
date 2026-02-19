@@ -1,3 +1,46 @@
-[gd_scene format=3 uid="uid://1gp01kypv03o"]
+[gd_scene format=4 uid="uid://1gp01kypv03o"]
+
+[ext_resource type="PackedScene" uid="uid://bq7r1haufrafx" path="res://scenes/portal.tscn" id="1_1jw75"]
+[ext_resource type="PackedScene" uid="uid://dejwn8ot7tvt7" path="res://scenes/player.tscn" id="2_8s3b3"]
+[ext_resource type="PackedScene" uid="uid://daangolvw7s05" path="res://scenes/refill.tscn" id="3_cc5tm"]
+[ext_resource type="PackedScene" uid="uid://bjr4ss4f30f77" path="res://scenes/moving_platform.tscn" id="4_mj76i"]
+[ext_resource type="TileSet" uid="uid://d12auhu4jho2" path="res://tres/tileset.tres" id="5_mdw0g"]
+[ext_resource type="PackedScene" uid="uid://dj0kv65yv821q" path="res://scenes/crumbling_platform.tscn" id="6_8s3b3"]
 
 [node name="Level4" type="Node2D" unique_id=448828240]
+
+[node name="Portal" parent="." unique_id=1880835436 instance=ExtResource("1_1jw75")]
+position = Vector2(1196, 104)
+next_scene_path = "res://levels/level5.tscn"
+
+[node name="player" parent="." unique_id=1865968049 instance=ExtResource("2_8s3b3")]
+position = Vector2(72, 622)
+
+[node name="refill" parent="." unique_id=500530116 instance=ExtResource("3_cc5tm")]
+position = Vector2(819, 304)
+
+[node name="moving_platform2" parent="." unique_id=1340186919 instance=ExtResource("4_mj76i")]
+position = Vector2(633, 465)
+move_speed = 6
+duracao = 2.0
+up_right = false
+
+[node name="moving_platform4" parent="." unique_id=1157355154 instance=ExtResource("4_mj76i")]
+position = Vector2(1039, 182)
+move_speed = 6
+distance = 210
+duracao = 1.0
+up_right = false
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=468155959]
+tile_map_data = PackedByteArray("AAAAACkAAAAAAAAAAAAAACwAAAAAAAIAAAAAACoAAAAJAAEAADAAACsAAAAJAAEAADABACkAAAABAAAAAAACACkAAAACAAAAAAADACkAAAABAAAAAAAEACkAAAABAAAAAAAFACkAAAAHAAAAAAAGACkAAAACAAAAAAAHACkAAAAHAAAAAAAIACkAAAABAAAAAAAJACkAAAAEAAAAAAAKACkAAAAJAAAAAAAKACoAAAAJAAEAAAAKACsAAAAJAAEAAAAKACwAAAAJAAIAAAABACwAAAACAAIAAAACACwAAAADAAIAAAADACwAAAAGAAIAAAAEACwAAAAIAAIAAAAFACwAAAACAAIAAAAGACwAAAACAAIAAAAHACwAAAADAAIAAAAIACwAAAAHAAIAAAAJACwAAAAFAAIAAAAEACoAAAACAAEAAAADACoAAAAEAAEAAAACACoAAAADAAEAAAABACoAAAAFAAEAAAABACsAAAAEAAEAAAACACsAAAAEAAEAAAADACsAAAAEAAEAAAAEACsAAAAEAAEAAAAFACsAAAAFAAEAAAAFACoAAAAFAAEAAAAGACoAAAACAAEAAAAGACsAAAADAAEAAAAHACsAAAADAAEAAAAHACoAAAAHAAEAAAAIACoAAAAFAAEAAAAIACsAAAABAAEAAAAJACsAAAAHAAEAAAAJACoAAAABAAEAAABHAAkAAAAAAAAAAABHAAwAAAAAAAIAAABPAAwAAAAJAAIAAABPAAkAAAAJAAAAAABHAAoAAAAJAAEAADBHAAsAAAAJAAEAADBPAAoAAAAJAAEAAABPAAsAAAAJAAEAAABIAAkAAAAGAAAAAABJAAkAAAACAAAAAABKAAkAAAACAAAAAABLAAkAAAAFAAAAAABMAAkAAAAEAAAAAABNAAkAAAADAAAAAABOAAkAAAADAAAAAABIAAwAAAAHAAIAAABJAAwAAAACAAIAAABKAAwAAAAIAAIAAABLAAwAAAAGAAIAAABMAAwAAAAFAAIAAABNAAwAAAAEAAIAAABOAAwAAAAIAAIAAABLAAoAAAAFAAEAAABKAAoAAAACAAEAAABJAAoAAAACAAEAAABIAAoAAAAGAAEAAABIAAsAAAAIAAEAAABJAAsAAAABAAEAAABKAAsAAAADAAEAAABLAAsAAAACAAEAAABMAAsAAAACAAEAAABMAAoAAAAFAAEAAABNAAoAAAAGAAEAAABNAAsAAAAEAAEAAABOAAsAAAABAAEAAABOAAoAAAAGAAEAAAA=")
+tile_set = ExtResource("5_mdw0g")
+
+[node name="crumbling_platform" parent="." unique_id=854672485 instance=ExtResource("6_8s3b3")]
+position = Vector2(309, 606)
+move_speed = 12
+duracao = 3.0
+
+[node name="crumbling_platform2" parent="." unique_id=41670247 instance=ExtResource("6_8s3b3")]
+position = Vector2(799, 344)
+move_speed = 9
