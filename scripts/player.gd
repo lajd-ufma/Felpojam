@@ -28,8 +28,10 @@ func _ready() -> void:
 
 func recarregar_tinta(value):
 	hud.emit_signal("recarregou_tinta", value)
-
+func reload_scene():
+	get_tree().reload_current_scene() 
 func _physics_process(delta):
+	if position.y > get_tree().root.get_visible_rect().size.y: call_deferred("reload_scene")
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -67,6 +69,7 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	position.x = clamp(position.x, 0, 1280)
 	move_and_slide()
 
 func _process(_delta: float) -> void:
