@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dt25pu4xhfe4v"]
+
+[ext_resource type="Script" uid="uid://dx4k2qsgtghrn" path="res://spikes.gd" id="1_5pg7g"]
+
+[sub_resource type="Gradient" id="Gradient_5pg7g"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xbcdo"]
+gradient = SubResource("Gradient_5pg7g")
+width = 32
+height = 6
+fill_to = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbcdo"]
+size = Vector2(40, 9)
+
+[node name="spikes" type="Area2D" unique_id=230898580]
+collision_layer = 2
+script = ExtResource("1_5pg7g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=279221223]
+position = Vector2(0.5000019, 1.000001)
+scale = Vector2(0.5, 0.122)
+texture = SubResource("GradientTexture2D_xbcdo")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=260685051]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_xbcdo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

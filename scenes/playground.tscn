@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bjr4ss4f30f77" path="res://scenes/moving_platform.tscn" id="3_m8u5f"]
 [ext_resource type="PackedScene" uid="uid://d1m5x0jhowsgc" path="res://scenes/generic_cartucho.tscn" id="4_q8s1k"]
 [ext_resource type="PackedScene" uid="uid://dj0kv65yv821q" path="res://scenes/crumbling_platform.tscn" id="5_mm0a5"]
+[ext_resource type="PackedScene" uid="uid://dt25pu4xhfe4v" path="res://scenes/spikes.tscn" id="6_o6wi6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt17y"]
-size = Vector2(1157, 20)
+size = Vector2(976, 35)
 
 [node name="playground" type="Node2D" unique_id=265155463]
 
@@ -17,7 +18,7 @@ position = Vector2(237, 449)
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=457840330]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1685733916]
-position = Vector2(562, 502)
+position = Vector2(485, 509.5)
 shape = SubResource("RectangleShape2D_wt17y")
 
 [node name="refill" parent="." unique_id=500530116 instance=ExtResource("2_wt17y")]
@@ -31,3 +32,7 @@ position = Vector2(81, 448)
 
 [node name="crumbling_platform" parent="." unique_id=854672485 instance=ExtResource("5_mm0a5")]
 position = Vector2(410, 417)
+
+[node name="spikes" parent="." unique_id=230898580 instance=ExtResource("6_o6wi6")]
+position = Vector2(1019, 504)
+scale = Vector2(2, 2)
