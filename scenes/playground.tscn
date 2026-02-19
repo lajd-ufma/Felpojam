@@ -4,12 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://daangolvw7s05" path="res://scenes/refill.tscn" id="2_wt17y"]
 [ext_resource type="PackedScene" uid="uid://bjr4ss4f30f77" path="res://scenes/moving_platform.tscn" id="3_m8u5f"]
 [ext_resource type="PackedScene" uid="uid://d1m5x0jhowsgc" path="res://scenes/generic_cartucho.tscn" id="4_q8s1k"]
+[ext_resource type="PackedScene" uid="uid://dj0kv65yv821q" path="res://scenes/crumbling_platform.tscn" id="5_mm0a5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt17y"]
 size = Vector2(1157, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rupst"]
-size = Vector2(623, 33)
 
 [node name="playground" type="Node2D" unique_id=265155463]
 
@@ -22,17 +20,6 @@ position = Vector2(237, 449)
 position = Vector2(562, 502)
 shape = SubResource("RectangleShape2D_wt17y")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2134155222]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1401635420]
-position = Vector2(822, 382)
-shape = SubResource("RectangleShape2D_rupst")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1245109407]
-position = Vector2(620, 194)
-shape = SubResource("RectangleShape2D_rupst")
-one_way_collision = true
-
 [node name="refill" parent="." unique_id=500530116 instance=ExtResource("2_wt17y")]
 position = Vector2(531, 459)
 
@@ -41,3 +28,6 @@ position = Vector2(309, 366)
 
 [node name="generic_cartucho" parent="." unique_id=854103316 instance=ExtResource("4_q8s1k")]
 position = Vector2(81, 448)
+
+[node name="crumbling_platform" parent="." unique_id=854672485 instance=ExtResource("5_mm0a5")]
+position = Vector2(410, 417)

@@ -52,13 +52,6 @@ script = ExtResource("1_q06lf")
 collision_layer = 8
 collision_mask = 3
 
-[node name="ColorRect" type="ColorRect" parent="AnimatableBody2D" unique_id=976064669]
-visible = false
-offset_left = -49.0
-offset_top = -11.0
-offset_right = 48.0
-offset_bottom = 10.0
-
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=770935074]
 scale = Vector2(2, 2)
 texture = ExtResource("2_1tdcd")

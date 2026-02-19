@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name MovingPlatform
 const WAIT_DURATION := 1
 
 @onready var platform :AnimatableBody2D = $AnimatableBody2D
@@ -16,7 +16,8 @@ var platform_center = 16
 @onready var animatable_body_2d: AnimatableBody2D = $AnimatableBody2D
 var tween:Tween
 func _exit_tree() -> void:
-	tween.kill()
+	if tween:
+		tween.kill()
 	tween = null
 	
 func _ready() -> void:
@@ -26,6 +27,7 @@ func _ready() -> void:
 	move_platform()
 
 func _on_manchou():
+	print("manchou")
 	if tween:
 		tween.kill()
 	animatable_body_2d.modulate = Color.BLACK
