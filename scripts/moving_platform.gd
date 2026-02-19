@@ -21,7 +21,6 @@ func _ready() -> void:
 	move_platform()
 
 func _on_manchou():
-	print("manchou")
 	if tween:
 		tween.kill()
 	animatable_body_2d.modulate = Color.BLACK
