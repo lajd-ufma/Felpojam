@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://daangolvw7s05" path="res://scenes/refill.tscn" id="4_1xfnq"]
 [ext_resource type="TileSet" uid="uid://d12auhu4jho2" path="res://tres/tileset.tres" id="5_cpie4"]
 [ext_resource type="PackedScene" uid="uid://dj0kv65yv821q" path="res://scenes/crumbling_platform.tscn" id="6_udvx3"]
+[ext_resource type="PackedScene" uid="uid://dotntfeo2cpe5" path="res://menus/pause_screen.tscn" id="7_1xfnq"]
 
 [node name="Level3" type="Node2D" unique_id=786022797]
 
@@ -51,3 +52,5 @@ position = Vector2(736, 321)
 distance = 120
 move_horizontal = false
 duracao = 1.0
+
+[node name="PauseScreen" parent="." unique_id=488362287 instance=ExtResource("7_1xfnq")]

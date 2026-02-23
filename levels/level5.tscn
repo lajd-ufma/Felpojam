@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bq7r1haufrafx" path="res://scenes/portal.tscn" id="4_dm5g0"]
 [ext_resource type="TileSet" uid="uid://d12auhu4jho2" path="res://tres/tileset.tres" id="5_vp6pq"]
 [ext_resource type="PackedScene" uid="uid://dj0kv65yv821q" path="res://scenes/crumbling_platform.tscn" id="6_0dsjn"]
+[ext_resource type="PackedScene" uid="uid://dotntfeo2cpe5" path="res://menus/pause_screen.tscn" id="7_ldkys"]
 
 [node name="Level5" type="Node2D" unique_id=132011536]
 
@@ -22,25 +23,25 @@ distance = 120
 duracao = 3.0
 
 [node name="moving_platform3" parent="." unique_id=1473758569 instance=ExtResource("1_bufqw")]
-position = Vector2(1230, 513)
+position = Vector2(1230, 490)
 move_speed = 6
 distance = 120
 duracao = 2.0
 up_right = false
 
 [node name="moving_platform4" parent="." unique_id=419633091 instance=ExtResource("1_bufqw")]
-position = Vector2(1075, 444)
+position = Vector2(1067, 440)
 distance = 210
 duracao = 2.5
 up_right = false
 
 [node name="moving_platform7" parent="." unique_id=2007089072 instance=ExtResource("1_bufqw")]
-position = Vector2(89, 516)
+position = Vector2(89, 495)
 move_speed = 12
 duracao = 3.6
 
 [node name="moving_platform8" parent="." unique_id=75273834 instance=ExtResource("1_bufqw")]
-position = Vector2(183, 660)
+position = Vector2(181, 674)
 move_speed = 21
 duracao = 3.8
 
@@ -59,7 +60,7 @@ distance = 150
 duracao = 0.4
 
 [node name="moving_platform13" parent="." unique_id=1105496045 instance=ExtResource("1_bufqw")]
-position = Vector2(361, 563)
+position = Vector2(361, 595)
 duracao = 3.7
 up_right = false
 
@@ -113,3 +114,5 @@ position = Vector2(1075, 574)
 move_speed = 12
 distance = 120
 duracao = 3.0
+
+[node name="PauseScreen" parent="." unique_id=488362287 instance=ExtResource("7_ldkys")]
