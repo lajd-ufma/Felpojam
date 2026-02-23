@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dj0kv65yv821q"]
+
+[ext_resource type="Script" uid="uid://cqagubtctdsyu" path="res://crumbling_platform.gd" id="1_inses"]
+[ext_resource type="Texture2D" uid="uid://ckid5yqqsgvjf" path="res://assets/tilemap-mesa-carimbo.png" id="2_qc85g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc85g"]
+size = Vector2(44, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgqrx"]
+size = Vector2(77, 10)
+
+[node name="crumbling_platform" type="Node2D" unique_id=854672485]
+script = ExtResource("1_inses")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=2035108164]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=71081960]
+shape = SubResource("RectangleShape2D_qc85g")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=1877566433]
+scale = Vector2(0.47916666, 0.47916666)
+texture = ExtResource("2_qc85g")
+
+[node name="detect_player" type="Area2D" parent="AnimatableBody2D" unique_id=566485122]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/detect_player" unique_id=219980950]
+position = Vector2(-0.5, -10)
+shape = SubResource("RectangleShape2D_tgqrx")
+one_way_collision = true
+
+[node name="TimerFall" type="Timer" parent="." unique_id=1329737442]
+one_shot = true
+
+[connection signal="body_entered" from="AnimatableBody2D/detect_player" to="." method="_on_detect_player_body_entered"]
+[connection signal="timeout" from="TimerFall" to="." method="_on_timer_fall_timeout"]

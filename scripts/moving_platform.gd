@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name MovingPlatform
 const WAIT_DURATION := 1
 
 @onready var platform :AnimatableBody2D = $AnimatableBody2D
@@ -14,9 +14,15 @@ var follow := Vector2.ZERO
 var platform_center = 16
 
 @onready var animatable_body_2d: AnimatableBody2D = $AnimatableBody2D
-@onready var tween:= get_tree().create_tween().set_loops().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-
+var tween:Tween
+func _exit_tree() -> void:
+	if tween:
+		tween.kill()
+	tween = null
+	
 func _ready() -> void:
+	tween = get_tree().create_tween().set_loops().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+
 	manchou.connect(_on_manchou)
 	move_platform()
 

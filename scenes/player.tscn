@@ -158,7 +158,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8u5f"]
-size = Vector2(59, 64)
+size = Vector2(40, 62)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onrkg"]
 bg_color = Color(0.2702219, 0.27022195, 0.27022177, 1)
@@ -180,7 +180,7 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_m8u5f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=253750216]
-position = Vector2(0.5, -1)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_m8u5f")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=444148976]
@@ -215,6 +215,12 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_i3pqv")
 value = 100.0
 show_percentage = false
 
-[node name="platform_detector" type="RayCast2D" parent="." unique_id=712809359]
+[node name="r_platform_detector" type="RayCast2D" parent="." unique_id=712809359]
+position = Vector2(22, 0)
+target_position = Vector2(0, 41)
+collision_mask = 8
+
+[node name="l_platform_detector" type="RayCast2D" parent="." unique_id=308000199]
+position = Vector2(-22, 0)
 target_position = Vector2(0, 41)
 collision_mask = 8

@@ -8,7 +8,9 @@ const JUMP_VELOCITY = -400.0
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 @onready var hud: CanvasLayer = $hud
-@onready var platform_detector: RayCast2D = $platform_detector
+@onready var r_platform_detector: RayCast2D = $r_platform_detector
+@onready var l_platform_detector: RayCast2D = $l_platform_detector
+
 
 signal recarregou_tinta
 
@@ -26,8 +28,10 @@ func _ready() -> void:
 
 func recarregar_tinta(value):
 	hud.emit_signal("recarregou_tinta", value)
-
+func reload_scene():
+	get_tree().reload_current_scene() 
 func _physics_process(delta):
+	if position.y > get_tree().root.get_visible_rect().size.y: call_deferred("reload_scene")
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -53,8 +57,10 @@ func _physics_process(delta):
 			velocity.y = -current_charge
 			cpu_particles_2d.emitting = true
 			
-			if platform_detector.is_colliding():
-				platform_detector.get_collider().get_parent().emit_signal("manchou")
+			if r_platform_detector.is_colliding():
+				r_platform_detector.get_collider().get_parent().emit_signal("manchou")
+			elif l_platform_detector.is_colliding():
+				l_platform_detector.get_collider().get_parent().emit_signal("manchou")
 
 		current_charge = 0.0
 
@@ -63,6 +69,7 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	position.x = clamp(position.x, 0, 1280)
 	move_and_slide()
 
 func _process(_delta: float) -> void:

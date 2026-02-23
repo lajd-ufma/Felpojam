@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bggvdxv4ltaet"]
 
-[ext_resource type="Script" uid="uid://cm5fuk2406ino" path="res://credits_screen.gd" id="1_8n838"]
+[ext_resource type="Script" uid="uid://cm5fuk2406ino" path="res://menus/scripts/credits_screen.gd" id="1_acgh4"]
 
 [node name="CreditsScreen" type="Control" unique_id=1618456951]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8n838")
+script = ExtResource("1_acgh4")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=559670400]
 layout_mode = 0
