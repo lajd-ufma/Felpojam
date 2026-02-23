@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dj0kv65yv821q"]
 
-[ext_resource type="Script" uid="uid://cqagubtctdsyu" path="res://crumbling_platform.gd" id="1_inses"]
+[ext_resource type="Script" uid="uid://cqagubtctdsyu" path="res://scripts/crumbling_platform.gd" id="1_inses"]
 [ext_resource type="Texture2D" uid="uid://ckid5yqqsgvjf" path="res://assets/tilemap-mesa-carimbo.png" id="2_qc85g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc85g"]
