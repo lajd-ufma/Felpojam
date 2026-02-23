@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dt25pu4xhfe4v"]
 
-[ext_resource type="Script" uid="uid://dx4k2qsgtghrn" path="res://spikes.gd" id="1_5pg7g"]
+[ext_resource type="Script" uid="uid://dx4k2qsgtghrn" path="res://scripts/spikes.gd" id="1_5pg7g"]
 
 [sub_resource type="Gradient" id="Gradient_5pg7g"]
 
