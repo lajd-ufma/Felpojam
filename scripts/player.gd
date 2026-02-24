@@ -16,25 +16,40 @@ signal recarregou_tinta
 
 var is_jumping := false
 var is_charging := false
+var is_sticking := false
 
 # Valores ajustáveis
 var min_jump_force := 450.0
 var max_jump_force := 700.0
 var charge_speed := 200.0
 var current_charge := 0.0
+var wall_climb_speed = -180.0
+
 
 func _ready() -> void:
 	recarregou_tinta.connect(recarregar_tinta)
 
 func recarregar_tinta(value):
 	hud.emit_signal("recarregou_tinta", value)
+func grudar_parede():
+	if not is_on_wall() or not Input.is_action_pressed("grudar"):
+		return
+	elif is_on_wall() and Input.is_action_pressed("grudar"):
+		is_sticking = true
+		velocity.y = 0
+	else:
+		is_sticking = false
+	if Input.is_action_pressed("ui_up"):
+		velocity.y = wall_climb_speed
+	elif Input.is_action_pressed("ui_down"):
+		velocity.y = -wall_climb_speed # Desce rápido
 func reload_scene():
 	get_tree().reload_current_scene() 
 func _physics_process(delta):
 	if position.y > get_tree().root.get_visible_rect().size.y: call_deferred("reload_scene")
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	grudar_parede()
 	# INÍCIO DO CHARGE
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		is_charging = true
@@ -63,7 +78,6 @@ func _physics_process(delta):
 				l_platform_detector.get_collider().get_parent().emit_signal("manchou")
 
 		current_charge = 0.0
-
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction and !Input.is_action_pressed("jump"):
 		velocity.x = direction * SPEED
