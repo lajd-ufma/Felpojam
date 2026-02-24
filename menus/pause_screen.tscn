@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://dotntfeo2cpe5"]
+
+[ext_resource type="Script" uid="uid://cu4sypjy464bb" path="res://menus/scripts/pause_screen.gd" id="1_6gdrf"]
+[ext_resource type="PackedScene" uid="uid://cu6iw5xltv5uy" path="res://menus/botao_generico.tscn" id="1_ktafr"]
+[ext_resource type="Shader" uid="uid://bdmwjnwsof533" path="res://shaders/blur_shader.gdshader" id="1_r7i3r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6gdrf"]
+shader = ExtResource("1_r7i3r")
+shader_parameter/lod = 0.0
+
+[sub_resource type="InputEventAction" id="InputEventAction_6gdrf"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_cod3e"]
+events = [SubResource("InputEventAction_6gdrf")]
+
+[sub_resource type="Animation" id="Animation_cod3e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BGOverlay:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BGOverlay/MenuHolder:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_85vr0"]
+resource_name = "pause_game"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BGOverlay:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BGOverlay/MenuHolder:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xt3vp"]
+resource_name = "resume_game"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BGOverlay:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BGOverlay/MenuHolder:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_clnnv"]
+_data = {
+&"RESET": SubResource("Animation_cod3e"),
+&"pause_game": SubResource("Animation_85vr0"),
+&"resume_game": SubResource("Animation_xt3vp")
+}
+
+[node name="PauseScreen" type="CanvasLayer" unique_id=488362287]
+process_mode = 3
+script = ExtResource("1_6gdrf")
+
+[node name="BGOverlay" type="ColorRect" parent="." unique_id=1208402877]
+material = SubResource("ShaderMaterial_6gdrf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TittlePaused" type="MarginContainer" parent="BGOverlay" unique_id=1015211703]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -243.5
+offset_top = 32.0
+offset_right = 243.5
+offset_bottom = 120.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="BGOverlay/TittlePaused" unique_id=1853858856]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "JOGO PAUSADO"
+
+[node name="MenuHolder" type="VBoxContainer" parent="BGOverlay" unique_id=2108709475]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -22.5
+offset_right = 76.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" parent="BGOverlay/MenuHolder" unique_id=1000166193 instance=ExtResource("1_ktafr")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_cod3e")
+text = "RETOMAR"
+
+[node name="QuitButton" parent="BGOverlay/MenuHolder" unique_id=1620538459 instance=ExtResource("1_ktafr")]
+layout_mode = 2
+text = "SAIR"
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=1682735170]
+libraries/ = SubResource("AnimationLibrary_clnnv")
+
+[connection signal="pressed" from="BGOverlay/MenuHolder/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="BGOverlay/MenuHolder/QuitButton" to="." method="_on_quit_button_pressed"]

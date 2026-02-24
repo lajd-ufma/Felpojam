@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjr4ss4f30f77" path="res://scenes/moving_platform.tscn" id="3_g1dg4"]
 [ext_resource type="TileSet" uid="uid://d12auhu4jho2" path="res://tres/tileset.tres" id="4_py88r"]
 [ext_resource type="PackedScene" uid="uid://dj0kv65yv821q" path="res://scenes/crumbling_platform.tscn" id="5_g1dg4"]
+[ext_resource type="PackedScene" uid="uid://dotntfeo2cpe5" path="res://menus/pause_screen.tscn" id="6_s1bpp"]
 
 [node name="Level2" type="Node2D" unique_id=2027839011]
 
@@ -29,3 +30,5 @@ tile_set = ExtResource("4_py88r")
 position = Vector2(581, 630)
 distance = 30
 duracao = 1.0
+
+[node name="PauseScreen" parent="." unique_id=488362287 instance=ExtResource("6_s1bpp")]

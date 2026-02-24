@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cu6iw5xltv5uy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_huxhd"]
+bg_color = Color(0.43904907, 0.43904915, 0.43904895, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em5lq"]
+bg_color = Color(0.14406255, 0.14406255, 0.14406255, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iagvq"]
+bg_color = Color(0.22670764, 0.22670743, 0.22670752, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0awoh"]
+bg_color = Color(0.22745098, 0.22745098, 0.22745098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[node name="BotaoGenerico" type="Button" unique_id=1000166193]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.10374334, 0.10374365, 0.10374341, 1)
+theme_override_colors/font_focus_color = Color(0.42352942, 0.42352942, 0.42352942, 1)
+theme_override_colors/font_pressed_color = Color(0.65423274, 0.6542319, 0.654232, 1)
+theme_override_colors/font_hover_color = Color(0.42365062, 0.42365065, 0.42365062, 1)
+theme_override_colors/icon_focus_color = Color(0.42352942, 0.42352942, 0.42352942, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_huxhd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_em5lq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iagvq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0awoh")
+text = "JOGAR"
