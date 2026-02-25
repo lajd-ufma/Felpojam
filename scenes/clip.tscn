@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bioskdnpfic12"]
+
+[ext_resource type="Script" uid="uid://dgo0qnp2kjeex" path="res://scenes/clip.gd" id="1_nnl4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5fbv"]
+
+[node name="clip" type="Area2D" unique_id=2030863676]
+collision_layer = 4
+script = ExtResource("1_nnl4h")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=39120635]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(0.19607843, 0.30980393, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1206981104]
+shape = SubResource("RectangleShape2D_c5fbv")
+debug_color = Color(0.1549513, 0.6306811, 0.39741912, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

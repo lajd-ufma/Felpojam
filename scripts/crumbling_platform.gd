@@ -1,10 +1,8 @@
 extends MovingPlatform
- 
-@export var movable := false
+
 @onready var timer_fall: Timer = $TimerFall
 
 var is_carimbado := false
-
 
 func _on_detect_player_body_entered(body: Node2D) -> void:
 	if !manchou.is_connected(_stop_fall):

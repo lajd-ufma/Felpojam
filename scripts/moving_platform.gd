@@ -22,7 +22,6 @@ func _exit_tree() -> void:
 	
 func _ready() -> void:
 	tween = get_tree().create_tween().set_loops().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-
 	manchou.connect(_on_manchou)
 	move_platform()
 

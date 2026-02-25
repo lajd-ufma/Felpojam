@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c4nhst3kn27v1"]
+
+[ext_resource type="Script" uid="uid://bfakl64mmgcpk" path="res://scenes/reverse_crumbling_platforms.gd" id="1_nnvmf"]
+[ext_resource type="Texture2D" uid="uid://ckid5yqqsgvjf" path="res://assets/tilemap-mesa-carimbo.png" id="1_qqogr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnvmf"]
+size = Vector2(77, 20)
+
+[node name="reverse_crumbling_platforms" type="Node2D" unique_id=262885040]
+script = ExtResource("1_nnvmf")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=347297171]
+modulate = Color(0.35686275, 0.5647059, 1, 1)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=386352110]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_nnvmf")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=768691722]
+scale = Vector2(0.47916666, 0.47916666)
+texture = ExtResource("1_qqogr")

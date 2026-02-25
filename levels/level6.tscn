@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cmt8lhuyvw64t"]
+
+[ext_resource type="PackedScene" uid="uid://dejwn8ot7tvt7" path="res://scenes/player.tscn" id="1_nyc3w"]
+[ext_resource type="PackedScene" uid="uid://c4nhst3kn27v1" path="res://scenes/reverse_crumbling_platforms.tscn" id="2_gadkw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tooxa"]
+size = Vector2(1300, 32)
+
+[node name="Level6" type="Node2D" unique_id=153459308]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1535483746]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1769217394]
+position = Vector2(636, 646)
+shape = SubResource("RectangleShape2D_tooxa")
+
+[node name="player" parent="." unique_id=1865968049 instance=ExtResource("1_nyc3w")]
+position = Vector2(126, 593)
+
+[node name="reverse_crumbling_platforms" parent="." unique_id=262885040 instance=ExtResource("2_gadkw")]
+position = Vector2(319, 545)

@@ -13,6 +13,9 @@ const JUMP_VELOCITY = -400.0
 
 
 signal recarregou_tinta
+signal pegou_clip
+
+var has_clip := true
 
 var is_jumping := false
 var is_charging := false
@@ -27,8 +30,16 @@ var wall_climb_speed = -180.0
 
 
 func _ready() -> void:
+	pegou_clip.connect(_on_pegou_clip)
 	recarregou_tinta.connect(recarregar_tinta)
 
+func _on_pegou_clip():
+	has_clip = true
+
+func _input(event: InputEvent) -> void:
+	grudar_parede()
+	if Input.is_action_just_pressed("restart"):
+		call_deferred("reload_scene")
 func recarregar_tinta(value):
 	hud.emit_signal("recarregou_tinta", value)
 func grudar_parede():
@@ -49,7 +60,7 @@ func _physics_process(delta):
 	if position.y > get_tree().root.get_visible_rect().size.y: call_deferred("reload_scene")
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	grudar_parede()
+
 	# INÍCIO DO CHARGE
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		is_charging = true
@@ -67,9 +78,10 @@ func _physics_process(delta):
 		is_charging = false
 
 		var tinta = current_charge/max_jump_force * 25
-		if hud.get_value_barra_de_tinta() - tinta > 0:
+		velocity.y = -current_charge
+		print(current_charge)
+		if hud.get_value_barra_de_tinta() - tinta > 0 and current_charge > 500:
 			hud.emit_signal("gastou_tinta", tinta)
-			velocity.y = -current_charge
 			cpu_particles_2d.emitting = true
 			
 			if r_platform_detector.is_colliding():

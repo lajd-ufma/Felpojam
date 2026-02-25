@@ -58,7 +58,6 @@ texture = ExtResource("2_1tdcd")
 vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=795614607]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_k1b7n")
 one_way_collision = true
 
