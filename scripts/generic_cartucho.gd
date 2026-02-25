@@ -33,5 +33,5 @@ func _update_sprite():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		body.emit_signal("pegou_cartucho", "RED")
+		body.emit_signal("pegou_cartucho", CartuchoColor.keys()[cartucho_color])
 		queue_free()
