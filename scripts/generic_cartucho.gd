@@ -1,7 +1,7 @@
 @tool # Permite que o código rode no editor
 extends Area2D
 
-enum CartuchoColor {BLUE, RED}
+enum CartuchoColor {BLUE, RED, GREEN}
 
 #var mask_vento := preload("res://assets/masks/mask_fujin.png")
 #var mask_fogo := preload("res://assets/masks/mask_kagutsuchi.png")
@@ -29,9 +29,17 @@ func _update_sprite():
 			#sprite.texture = mask_vento
 		CartuchoColor.RED:
 			$ColorRect.color = Color.RED
+		CartuchoColor.GREEN:
+			$ColorRect.color = Color.GREEN
+
+#
+#func _on_area_2d_body_entered(body: Node2D) -> void:
+	#if body.is_in_group("player"):
+		#body.emit_signal("pegou_cartucho", CartuchoColor.keys()[cartucho_color])
+		#queue_free()
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		body.emit_signal("pegou_cartucho", CartuchoColor.keys()[cartucho_color])
 		queue_free()

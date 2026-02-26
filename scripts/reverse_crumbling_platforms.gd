@@ -1,6 +1,5 @@
 extends MovingPlatform
 
-@onready var timer_fall: Timer = $TimerFall
 @onready var anim: AnimationPlayer = $AnimatableBody2D/AnimationPlayer
 
 var is_falling := false

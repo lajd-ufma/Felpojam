@@ -13,17 +13,21 @@ const JUMP_VELOCITY = -400.0
 @onready var r_spell_point: Marker2D = $r_spell_point
 @onready var l_spell_point: Marker2D = $l_spell_point
 
+var mark = preload("res://scenes/mark.tscn")
+var current_mark: Node2D = null
 var shoot = preload("res://scenes/shoot.tscn")
 signal recarregou_tinta
 signal pegou_clip
 signal pegou_cartucho
 
 var has_clip := true
-
+var can_teleport := true
 var is_jumping := false
 var is_charging := false
 var is_sticking := false
-
+var can_double_jump := false
+var has_double_jumped := false
+var double_jump_force := -500.0
 var can_shoot := false
 
 # Valores ajustáveis
@@ -46,6 +50,20 @@ func _input(event: InputEvent) -> void:
 	grudar_parede()
 	if Input.is_action_just_pressed("restart"):
 		call_deferred("reload_scene")
+	if not can_teleport: return
+	if Input.is_action_just_pressed("marcar") and is_on_floor():
+		if current_mark: current_mark.queue.free()
+		current_mark = mark.instantiate()
+		get_tree().root.add_child(current_mark)
+		current_mark.global_position = global_position
+		print("marcou")
+	if Input.is_action_just_pressed("teleport"):
+		if current_mark:
+			global_position = current_mark.global_position
+			current_mark.queue_free() # Remove após o uso
+			current_mark = null
+			print("Teleportou")
+
 func recarregar_tinta(value):
 	hud.emit_signal("recarregou_tinta", value)
 func _on_pegou_cartucho(cartucho):
@@ -53,9 +71,9 @@ func _on_pegou_cartucho(cartucho):
 		"RED":
 			can_shoot = true
 		"GREEN":
-			pass
+			can_double_jump = true
 		"BLUE":
-			pass
+			can_teleport = true
 func grudar_parede():
 	if not is_on_wall() or not Input.is_action_pressed("grudar"):
 		return
@@ -74,6 +92,13 @@ func _physics_process(delta):
 	if position.y > get_tree().root.get_visible_rect().size.y: call_deferred("reload_scene")
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		has_double_jumped = false
+	if Input.is_action_just_pressed("jump") and not is_on_floor():
+		if can_double_jump and not has_double_jumped:
+			velocity.y = double_jump_force
+			has_double_jumped = true
+			is_charging = false
 	
 	if Input.is_action_just_pressed("atirar") and can_shoot:
 		var new_shoot = shoot.instantiate()
@@ -117,7 +142,7 @@ func _physics_process(delta):
 		sprite_2d.flip_h = false
 	else:
 		sprite_2d.flip_h = true
-	if direction and !Input.is_action_pressed("jump"):
+	if direction and not is_charging:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
