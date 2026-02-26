@@ -29,7 +29,6 @@ position = Vector2(309, 366)
 
 [node name="generic_cartucho" parent="." unique_id=854103316 instance=ExtResource("4_q8s1k")]
 position = Vector2(81, 448)
-cartucho_color = 1
 
 [node name="crumbling_platform" parent="." unique_id=854672485 instance=ExtResource("5_mm0a5")]
 position = Vector2(410, 417)

@@ -206,9 +206,9 @@ color = Color(0.07123137, 0.07123139, 0.07123137, 1)
 script = ExtResource("3_i3pqv")
 
 [node name="barra_de_tinta" type="ProgressBar" parent="hud" unique_id=1305959948]
-offset_left = 1104.0
+offset_left = 796.0
 offset_top = 48.0
-offset_right = 1285.0
+offset_right = 977.0
 offset_bottom = 75.0
 theme_override_styles/background = SubResource("StyleBoxFlat_onrkg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_i3pqv")
@@ -224,10 +224,3 @@ collision_mask = 8
 position = Vector2(-22, 0)
 target_position = Vector2(0, 41)
 collision_mask = 8
-
-[node name="r_spell_point" type="Marker2D" parent="." unique_id=1704273309]
-position = Vector2(34, 3)
-gizmo_extents = 0.0
-
-[node name="l_spell_point" type="Marker2D" parent="." unique_id=1493039670]
-position = Vector2(-34, 3)

@@ -10,21 +10,16 @@ const JUMP_VELOCITY = -400.0
 @onready var hud: CanvasLayer = $hud
 @onready var r_platform_detector: RayCast2D = $r_platform_detector
 @onready var l_platform_detector: RayCast2D = $l_platform_detector
-@onready var r_spell_point: Marker2D = $r_spell_point
-@onready var l_spell_point: Marker2D = $l_spell_point
 
-var shoot = preload("res://scenes/shoot.tscn")
+
 signal recarregou_tinta
 signal pegou_clip
-signal pegou_cartucho
 
 var has_clip := true
 
 var is_jumping := false
 var is_charging := false
 var is_sticking := false
-
-var can_shoot := false
 
 # Valores ajustáveis
 var min_jump_force := 450.0
@@ -37,7 +32,6 @@ var wall_climb_speed = -180.0
 func _ready() -> void:
 	pegou_clip.connect(_on_pegou_clip)
 	recarregou_tinta.connect(recarregar_tinta)
-	pegou_cartucho.connect(_on_pegou_cartucho)
 
 func _on_pegou_clip():
 	has_clip = true
@@ -48,14 +42,6 @@ func _input(event: InputEvent) -> void:
 		call_deferred("reload_scene")
 func recarregar_tinta(value):
 	hud.emit_signal("recarregou_tinta", value)
-func _on_pegou_cartucho(cartucho):
-	match cartucho:
-		"RED":
-			can_shoot = true
-		"GREEN":
-			pass
-		"BLUE":
-			pass
 func grudar_parede():
 	if not is_on_wall() or not Input.is_action_pressed("grudar"):
 		return
@@ -74,15 +60,7 @@ func _physics_process(delta):
 	if position.y > get_tree().root.get_visible_rect().size.y: call_deferred("reload_scene")
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	
-	if Input.is_action_just_pressed("atirar") and can_shoot:
-		var new_shoot = shoot.instantiate()
-		if sprite_2d.flip_h:
-			new_shoot.direction = -1
-			new_shoot.global_position = l_spell_point.global_position
-		else:
-			new_shoot.global_position = r_spell_point.global_position
-		get_tree().root.add_child(new_shoot)
+
 	# INÍCIO DO CHARGE
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		is_charging = true
@@ -113,10 +91,6 @@ func _physics_process(delta):
 
 		current_charge = 0.0
 	var direction := Input.get_axis("move_left", "move_right")
-	if direction>0:
-		sprite_2d.flip_h = false
-	else:
-		sprite_2d.flip_h = true
 	if direction and !Input.is_action_pressed("jump"):
 		velocity.x = direction * SPEED
 	else:
