@@ -123,10 +123,6 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	position.x = clamp(position.x, 0, 1280)
 	move_and_slide()
-	for platforms in get_slide_collision_count():
-		var collision = get_slide_collision(platforms)
-		if collision.get_collider().has_method("has_collided_with"):
-			collision.get_collider().has_collided_with(collision,self)
 
 
 func _process(_delta: float) -> void:
