@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d1m5x0jhowsgc" path="res://scenes/generic_cartucho.tscn" id="4_q8s1k"]
 [ext_resource type="PackedScene" uid="uid://dj0kv65yv821q" path="res://scenes/crumbling_platform.tscn" id="5_mm0a5"]
 [ext_resource type="PackedScene" uid="uid://dt25pu4xhfe4v" path="res://scenes/spikes.tscn" id="6_o6wi6"]
+[ext_resource type="PackedScene" uid="uid://c4nhst3kn27v1" path="res://scenes/reverse_crumbling_platforms.tscn" id="7_emj6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt17y"]
 size = Vector2(976, 35)
@@ -37,3 +38,6 @@ position = Vector2(410, 417)
 [node name="spikes" parent="." unique_id=230898580 instance=ExtResource("6_o6wi6")]
 position = Vector2(1019, 504)
 scale = Vector2(2, 2)
+
+[node name="reverse_crumbling_platforms" parent="." unique_id=262885040 instance=ExtResource("7_emj6c")]
+position = Vector2(737, 415)

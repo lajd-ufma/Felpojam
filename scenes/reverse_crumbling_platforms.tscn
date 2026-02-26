@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://c4nhst3kn27v1"]
 
-[ext_resource type="Script" uid="uid://bfakl64mmgcpk" path="res://scenes/reverse_crumbling_platforms.gd" id="1_nnvmf"]
+[ext_resource type="Script" uid="uid://bfakl64mmgcpk" path="res://scripts/reverse_crumbling_platforms.gd" id="1_nnvmf"]
 [ext_resource type="Texture2D" uid="uid://ckid5yqqsgvjf" path="res://assets/tilemap-mesa-carimbo.png" id="1_qqogr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnvmf"]
 size = Vector2(77, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khk55"]
+size = Vector2(77, 10)
 
 [node name="reverse_crumbling_platforms" type="Node2D" unique_id=262885040]
 script = ExtResource("1_nnvmf")
@@ -21,3 +24,18 @@ one_way_collision = true
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=768691722]
 scale = Vector2(0.47916666, 0.47916666)
 texture = ExtResource("1_qqogr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D" unique_id=2052805582]
+
+[node name="detect_player" type="Area2D" parent="." unique_id=1390739471]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_player" unique_id=109310214]
+position = Vector2(-0.5, -10)
+shape = SubResource("RectangleShape2D_khk55")
+one_way_collision = true
+
+[node name="TimerFall" type="Timer" parent="." unique_id=822968496]
+one_shot = true
+
+[connection signal="body_entered" from="detect_player" to="." method="_on_detect_player_body_entered"]
+[connection signal="timeout" from="TimerFall" to="." method="_on_timer_fall_timeout"]
