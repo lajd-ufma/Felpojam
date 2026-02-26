@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bjr4ss4f30f77"]
 
 [ext_resource type="Script" uid="uid://mlfg37kmpbbe" path="res://scripts/moving_platform.gd" id="1_q06lf"]
-[ext_resource type="Texture2D" uid="uid://cme2y3kfshgms" path="res://assets/Autorais/folha.animação.png" id="2_1tdcd"]
+[ext_resource type="Texture2D" uid="uid://bdnactfii3bio" path="res://assets/Autorais/folha.animação-sheet.png" id="2_1tdcd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1b7n"]
-size = Vector2(90, 21)
+size = Vector2(112, 10)
 
 [sub_resource type="Animation" id="Animation_1tdcd"]
 length = 0.001
@@ -59,7 +59,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_mb26n"]
 resource_name = "idle"
-length = 0.9
+length = 0.7
 loop_mode = 1
 step = 0.15
 tracks/0/type = "value"
@@ -96,7 +96,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [2]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -105,10 +105,10 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45000002, 0.6, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45000002, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 5, 6]
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_afg43"]
@@ -125,13 +125,13 @@ collision_layer = 8
 collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=770935074]
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 texture = ExtResource("2_1tdcd")
 hframes = 3
 vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=795614607]
-position = Vector2(0, 1.5)
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_k1b7n")
 one_way_collision = true
 

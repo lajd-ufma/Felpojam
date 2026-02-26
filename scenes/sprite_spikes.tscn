@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://3puo7h586kk0"]
+
+[ext_resource type="Texture2D" uid="uid://cmc7ytdcgdpjn" path="res://assets/Autorais/espinhos.png" id="1_uo5bj"]
+
+[node name="sprite_spikes" type="Sprite2D" unique_id=1461707650]
+texture_repeat = 3
+texture = ExtResource("1_uo5bj")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 10)

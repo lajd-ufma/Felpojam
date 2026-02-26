@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://d12auhu4jho2" path="res://tres/tileset.tres" id="4_ua5ty"]
 [ext_resource type="PackedScene" uid="uid://dj0kv65yv821q" path="res://scenes/crumbling_platform.tscn" id="5_61w3m"]
 [ext_resource type="PackedScene" uid="uid://dotntfeo2cpe5" path="res://menus/pause_screen.tscn" id="6_pdpul"]
+[ext_resource type="PackedScene" uid="uid://dt25pu4xhfe4v" path="res://scenes/spikes.tscn" id="8_omn1t"]
 
 [node name="Level1" type="Node2D" unique_id=1506694239]
 
@@ -31,3 +32,6 @@ tile_set = ExtResource("4_ua5ty")
 position = Vector2(683, 503)
 
 [node name="PauseScreen" parent="." unique_id=488362287 instance=ExtResource("6_pdpul")]
+
+[node name="spikes" parent="." unique_id=230898580 instance=ExtResource("8_omn1t")]
+position = Vector2(605, 561)

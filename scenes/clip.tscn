@@ -1,22 +1,64 @@
 [gd_scene format=3 uid="uid://bioskdnpfic12"]
 
 [ext_resource type="Script" uid="uid://dgo0qnp2kjeex" path="res://scenes/clip.gd" id="1_nnl4h"]
+[ext_resource type="Texture2D" uid="uid://c4jlmojtrbbe" path="res://assets/Autorais/clipe de papel.png" id="2_7h10w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5fbv"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_7h10w"]
+radius = 14.035668
+
+[sub_resource type="Animation" id="Animation_3rxt8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7h10w"]
+resource_name = "idle"
+length = 1.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001, 1.4, 1.5, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3rxt8"]
+_data = {
+&"RESET": SubResource("Animation_3rxt8"),
+&"idle": SubResource("Animation_7h10w")
+}
 
 [node name="clip" type="Area2D" unique_id=2030863676]
 collision_layer = 4
 script = ExtResource("1_nnl4h")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=39120635]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-color = Color(0.19607843, 0.30980393, 1, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1206981104]
-shape = SubResource("RectangleShape2D_c5fbv")
+shape = SubResource("CircleShape2D_7h10w")
 debug_color = Color(0.1549513, 0.6306811, 0.39741912, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=78590370]
+texture = ExtResource("2_7h10w")
+hframes = 17
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1256368678]
+libraries/ = SubResource("AnimationLibrary_3rxt8")
+autoplay = &"idle"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

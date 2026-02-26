@@ -21,6 +21,8 @@ var is_jumping := false
 var is_charging := false
 var is_sticking := false
 
+var can_shoot := true
+
 # Valores ajustáveis
 var min_jump_force := 450.0
 var max_jump_force := 700.0
