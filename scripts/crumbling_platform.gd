@@ -23,6 +23,7 @@ func _on_manchou():
 	super._on_manchou()
 	
 	is_carimbado = true
+	animation_player_shake.stop()
 	timer_fall.stop()
 
 func _on_timer_fall_timeout() -> void:

@@ -13,6 +13,7 @@ signal manchou
 var follow := Vector2.ZERO
 var platform_center = 16
 
+@onready var animation_player: AnimationPlayer = $AnimatableBody2D/AnimationPlayer
 @onready var animatable_body_2d: AnimatableBody2D = $AnimatableBody2D
 var tween:Tween
 func _exit_tree() -> void:
@@ -29,6 +30,7 @@ func _on_manchou():
 	print("manchou")
 	if tween:
 		tween.kill()
+	animation_player.stop()
 	animatable_body_2d.modulate = Color.BLACK
 
 func _physics_process(_delta: float) -> void:
