@@ -27,7 +27,6 @@ func _ready() -> void:
 	move_platform()
 
 func _on_manchou():
-	print("manchou")
 	if tween:
 		tween.kill()
 	animation_player.stop()
@@ -38,7 +37,6 @@ func _physics_process(_delta: float) -> void:
 
 func move_platform():
 	var move_direction = distance * set_direction(move_horizontal,up_right)
-	#var duration = move_direction.length()/float(move_speed*platform_center)
 	tween.tween_property(self, "follow", move_direction, duracao).set_delay(1)
 	tween.tween_property(self, "follow", Vector2.ZERO, duracao).set_delay(1)
 

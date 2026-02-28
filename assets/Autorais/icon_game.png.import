@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckid5yqqsgvjf"
-path="res://.godot/imported/tilemap-mesa-carimbo.png-71dc3e9ed1018b9a35a1654a5519824e.ctex"
+uid="uid://bdkyagcqngk45"
+path="res://.godot/imported/icon_game.png-dbff974d96ec20a4c402d11221d0b00a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilemap-mesa-carimbo.png"
-dest_files=["res://.godot/imported/tilemap-mesa-carimbo.png-71dc3e9ed1018b9a35a1654a5519824e.ctex"]
+source_file="res://assets/Autorais/icon_game.png"
+dest_files=["res://.godot/imported/icon_game.png-dbff974d96ec20a4c402d11221d0b00a.ctex"]
 
 [params]
 

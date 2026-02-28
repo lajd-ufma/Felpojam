@@ -54,6 +54,7 @@ shape = SubResource("CircleShape2D_7h10w")
 debug_color = Color(0.1549513, 0.6306811, 0.39741912, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=78590370]
+modulate = Color(0.42352942, 0.39215687, 0, 1)
 texture = ExtResource("2_7h10w")
 hframes = 17
 

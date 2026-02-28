@@ -1,20 +1,17 @@
 [gd_scene format=3 uid="uid://dj0kv65yv821q"]
 
 [ext_resource type="Script" uid="uid://cqagubtctdsyu" path="res://scripts/crumbling_platform.gd" id="1_inses"]
-[ext_resource type="Texture2D" uid="uid://cdt6kr6ltavdv" path="res://assets/Autorais/amassada.png" id="2_qc85g"]
+[ext_resource type="Texture2D" uid="uid://di4lnai0qw1v2" path="res://assets/Autorais/amassada.animação..png" id="2_qc85g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc85g"]
 size = Vector2(86, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgqrx"]
-size = Vector2(77, 10)
 
 [sub_resource type="Animation" id="Animation_qc85g"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,29 +20,169 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qc85g")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_uchm4"]
+resource_name = "caino"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qc85g")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
 
 [sub_resource type="Animation" id="Animation_tgqrx"]
 resource_name = "shake"
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(10, 0), Vector2(100, 0), Vector2(-10, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(5, 0), Vector2(0, 0), Vector2(-5, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qc85g")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uchm4"]
 _data = {
 &"RESET": SubResource("Animation_qc85g"),
+&"caino": SubResource("Animation_uchm4"),
 &"shake": SubResource("Animation_tgqrx")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgqrx"]
+size = Vector2(86, 10)
 
 [node name="crumbling_platform" type="Node2D" unique_id=854672485]
 script = ExtResource("1_inses")
@@ -60,20 +197,23 @@ one_way_collision = true
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=1877566433]
 scale = Vector2(3, 3)
 texture = ExtResource("2_qc85g")
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D" unique_id=479353013]
+libraries/ = SubResource("AnimationLibrary_uchm4")
 
 [node name="detect_player" type="Area2D" parent="AnimatableBody2D" unique_id=566485122]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/detect_player" unique_id=219980950]
-position = Vector2(-0.5, -10)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_tgqrx")
 one_way_collision = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D" unique_id=445405376]
-libraries/ = SubResource("AnimationLibrary_uchm4")
 
 [node name="TimerFall" type="Timer" parent="." unique_id=1329737442]
 one_shot = true
 
+[connection signal="animation_finished" from="AnimatableBody2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="AnimatableBody2D/detect_player" to="." method="_on_detect_player_body_entered"]
 [connection signal="timeout" from="TimerFall" to="." method="_on_timer_fall_timeout"]

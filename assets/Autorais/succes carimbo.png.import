@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cskip0oinwmdj"
-path="res://.godot/imported/carimbo_walking.png-48db02e070e20f5ba44c4cdbd1bba267.ctex"
+uid="uid://dny736g7bbcq7"
+path="res://.godot/imported/succes carimbo.png-c80f19f4b610cf2601374c9411e8dee8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/carimbo_walking.png"
-dest_files=["res://.godot/imported/carimbo_walking.png-48db02e070e20f5ba44c4cdbd1bba267.ctex"]
+source_file="res://assets/Autorais/succes carimbo.png"
+dest_files=["res://.godot/imported/succes carimbo.png-c80f19f4b610cf2601374c9411e8dee8.ctex"]
 
 [params]
 

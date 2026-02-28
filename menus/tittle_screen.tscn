@@ -2,14 +2,7 @@
 
 [ext_resource type="Script" uid="uid://x3ton34q8x2m" path="res://menus/scripts/tittle_screen.gd" id="1_frxte"]
 [ext_resource type="PackedScene" uid="uid://cu6iw5xltv5uy" path="res://menus/botao_generico.tscn" id="2_3j41i"]
-
-[sub_resource type="Gradient" id="Gradient_frxte"]
-offsets = PackedFloat32Array(0.024096385, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_esoai"]
-gradient = SubResource("Gradient_frxte")
-fill_from = Vector2(0, 0.84347826)
-fill_to = Vector2(0, 0.017391304)
+[ext_resource type="Texture2D" uid="uid://bt384asornj12" path="res://assets/Autorais/background.iluminado.png" id="2_58hli"]
 
 [node name="TittleScreen" type="Control" unique_id=671577314]
 layout_mode = 3
@@ -24,7 +17,7 @@ script = ExtResource("1_frxte")
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = SubResource("GradientTexture2D_esoai")
+texture = ExtResource("2_58hli")
 stretch_mode = 6
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1903019231]
@@ -34,13 +27,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 32
 
 [node name="Label" type="Label" parent="MarginContainer2" unique_id=1686774177]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 35
-text = "Titulo fodinha, deixe seu like. Yeah!"
+text = "Kalimbada!"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=308890928]
@@ -57,7 +51,7 @@ theme_override_constants/margin_right = 50
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 8
+theme_override_constants/separation = 16
 alignment = 1
 
 [node name="start_btn" parent="MarginContainer/VBoxContainer" unique_id=1000166193 instance=ExtResource("2_3j41i")]

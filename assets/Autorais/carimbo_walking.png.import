@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbrmswjsw6s7h"
-path="res://.godot/imported/sulfite_moving_platform.png-286e409b101d4608614f5f03e0330510.ctex"
+uid="uid://cskip0oinwmdj"
+path="res://.godot/imported/carimbo_walking.png-9c0a2d2fbd158c94026da3060b4532fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sulfite_moving_platform.png"
-dest_files=["res://.godot/imported/sulfite_moving_platform.png-286e409b101d4608614f5f03e0330510.ctex"]
+source_file="res://assets/Autorais/carimbo_walking.png"
+dest_files=["res://.godot/imported/carimbo_walking.png-9c0a2d2fbd158c94026da3060b4532fd.ctex"]
 
 [params]
 

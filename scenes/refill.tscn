@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://daangolvw7s05"]
 
 [ext_resource type="Script" uid="uid://csf6ee164qe1m" path="res://scripts/refill.gd" id="1_xchbi"]
-[ext_resource type="Texture2D" uid="uid://ftqsp8tb6afw" path="res://assets/refill.png" id="2_lmver"]
+[ext_resource type="Texture2D" uid="uid://ftqsp8tb6afw" path="res://assets/Autorais/refill.png" id="2_lmver"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cyu06"]
 radius = 33.06055

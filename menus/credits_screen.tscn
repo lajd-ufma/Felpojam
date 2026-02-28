@@ -16,7 +16,7 @@ script = ExtResource("1_acgh4")
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-color = Color(0.21230483, 0.21230483, 0.21230483, 1)
+color = Color(0.116943054, 0.11099034, 0.47222537, 1)
 
 [node name="fica_pra_depois_faith" type="HSplitContainer" parent="." unique_id=230444075]
 layout_mode = 1

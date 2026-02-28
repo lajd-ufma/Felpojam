@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://d12auhu4jho2"]
 
-[ext_resource type="Texture2D" uid="uid://ckid5yqqsgvjf" path="res://assets/tilemap-mesa-carimbo.png" id="1_jwgb8"]
+[ext_resource type="Texture2D" uid="uid://ckid5yqqsgvjf" path="res://assets/Autorais/tilemap-mesa-carimbo.png" id="1_jwgb8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dywbp"]
 texture = ExtResource("1_jwgb8")

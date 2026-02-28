@@ -10,18 +10,26 @@ const JUMP_VELOCITY = -400.0
 @onready var hud: CanvasLayer = $hud
 @onready var r_platform_detector: RayCast2D = $r_platform_detector
 @onready var l_platform_detector: RayCast2D = $l_platform_detector
+@onready var r_spell_point: Marker2D = $r_spell_point
+@onready var l_spell_point: Marker2D = $l_spell_point
+@onready var carimbo_clicked: AudioStreamPlayer = $"SFX/carimbo-clicked"
+@onready var carimbo_released: AudioStreamPlayer = $"SFX/carimbo-released"
+@onready var som_morte: AudioStreamPlayer = $"SFX/som-morte"
 
-
+var shoot = preload("res://scenes/shoot.tscn")
 signal recarregou_tinta
 signal pegou_clip
+signal pegou_cartucho
+signal caiu_espinho
 
 var has_clip := true
 
 var is_jumping := false
 var is_charging := false
+var is_charged := false
 var is_sticking := false
 
-var can_shoot := true
+var can_shoot := false
 
 # Valores ajustáveis
 var min_jump_force := 450.0
@@ -34,9 +42,16 @@ var wall_climb_speed = -180.0
 func _ready() -> void:
 	pegou_clip.connect(_on_pegou_clip)
 	recarregou_tinta.connect(recarregar_tinta)
+	pegou_cartucho.connect(_on_pegou_cartucho)
+	caiu_espinho.connect(morrer)
+	som_morte.finished.connect(reload_scene)
 
 func _on_pegou_clip():
 	has_clip = true
+
+func morrer():
+	visible = false
+	som_morte.play()
 
 func _input(event: InputEvent) -> void:
 	grudar_parede()
@@ -44,6 +59,14 @@ func _input(event: InputEvent) -> void:
 		call_deferred("reload_scene")
 func recarregar_tinta(value):
 	hud.emit_signal("recarregou_tinta", value)
+func _on_pegou_cartucho(cartucho):
+	match cartucho:
+		"RED":
+			can_shoot = true
+		"GREEN":
+			pass
+		"BLUE":
+			pass
 func grudar_parede():
 	if not is_on_wall() or not Input.is_action_pressed("grudar"):
 		return
@@ -59,17 +82,29 @@ func grudar_parede():
 func reload_scene():
 	get_tree().reload_current_scene() 
 func _physics_process(delta):
-	if position.y > get_tree().root.get_visible_rect().size.y: call_deferred("reload_scene")
+	if position.y > get_tree().root.get_visible_rect().size.y: 
+		set_physics_process(false)
+		morrer()
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
+	if Input.is_action_just_pressed("atirar") and can_shoot:
+		var new_shoot = shoot.instantiate()
+		if sprite_2d.flip_h:
+			new_shoot.direction = -1
+			new_shoot.global_position = l_spell_point.global_position
+		else:
+			new_shoot.global_position = r_spell_point.global_position
+		get_tree().root.add_child(new_shoot)
 
-	# INÍCIO DO CHARGE
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		carimbo_clicked.play()
 		is_charging = true
 		current_charge = min_jump_force
 
-	# CONTINUAR CHARGE
+
 	if is_charging and Input.is_action_pressed("jump") and is_on_floor():
+		is_charged = true
 		current_charge = clamp(
 			current_charge + charge_speed * delta,
 			min_jump_force,
@@ -77,11 +112,12 @@ func _physics_process(delta):
 		)
 
 	if is_charging and Input.is_action_just_released("jump"):
+		carimbo_released.play()
 		is_charging = false
+		is_charged = false
 
 		var tinta = current_charge/max_jump_force * 25
-		velocity.y = -current_charge
-		print(current_charge)
+
 		if hud.get_value_barra_de_tinta() - tinta > 0 and current_charge > 500:
 			hud.emit_signal("gastou_tinta", tinta)
 			cpu_particles_2d.emitting = true
@@ -90,15 +126,26 @@ func _physics_process(delta):
 				r_platform_detector.get_collider().get_parent().emit_signal("manchou")
 			elif l_platform_detector.is_colliding():
 				l_platform_detector.get_collider().get_parent().emit_signal("manchou")
-
+		else:
+			current_charge = min_jump_force
+		velocity.y = -current_charge
 		current_charge = 0.0
 	var direction := Input.get_axis("move_left", "move_right")
+	if direction>0:
+		sprite_2d.flip_h = false
+	else:
+		sprite_2d.flip_h = true
 	if direction and !Input.is_action_pressed("jump"):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	position.x = clamp(position.x, 0, 1280)
 	move_and_slide()
+	for platforms in get_slide_collision_count():
+		var collision = get_slide_collision(platforms)
+		if collision.get_collider().has_method("has_collided_with"):
+			collision.get_collider().has_collided_with(collision,self)
+
 
 func _process(_delta: float) -> void:
 	set_animation()
@@ -108,6 +155,8 @@ func set_animation():
 
 	if velocity.x != 0 and is_on_floor() and not is_charging:
 		anim = "walking"
+	elif is_charged:
+		anim = "charged"
 	elif is_charging:
 		anim = "charging"
 
